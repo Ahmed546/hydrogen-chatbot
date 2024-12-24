@@ -8,12 +8,13 @@ from langchain.prompts import PromptTemplate
 from langchain_huggingface import HuggingFaceEndpoint
 from transformers import pipeline
 from src.prompt import *
+import streamlit as st
 
 
 PROMPT = PromptTemplate(template=prompt_template, input_veriables=['context','question'])
 chain_type_kwargs={"prompt":PROMPT}
 embeddings_model = "sentence-transformers/all-MiniLM-L6-v2"
-
+api_key = st.secrets["huggingface"]["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"]
 def extract_text_from_pdfs(pdf_folder):
     text = ""
     for file_name in os.listdir(pdf_folder):
@@ -59,6 +60,7 @@ def load_db():
 
 
 def load_pretrained_model():
+
     repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
 
     # Define model_kwargs
@@ -68,7 +70,7 @@ def load_pretrained_model():
 
     llm = HuggingFaceEndpoint(
     repo_id=repo_id,
-    token="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",
+    token=api_key,
     temperature=0.7, 
     model_kwargs=model_kwargs)
     return llm 
