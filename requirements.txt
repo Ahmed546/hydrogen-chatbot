@@ -9,6 +9,8 @@ transformers[torch]
 langchain-huggingface
 streamlit
 python-dotenv
+langchain-community
+
 #llama-cpp-python
 
--e .
+#-e .

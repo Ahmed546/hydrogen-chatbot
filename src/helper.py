@@ -6,7 +6,7 @@ from langchain.chains import RetrievalQA
 import os
 from langchain.prompts import PromptTemplate
 from langchain_huggingface import HuggingFaceEndpoint
-from transformers import pipeline
+
 from src.prompt import *
 import streamlit as st
 
@@ -14,7 +14,7 @@ import streamlit as st
 PROMPT = PromptTemplate(template=prompt_template, input_veriables=['context','question'])
 chain_type_kwargs={"prompt":PROMPT}
 embeddings_model = "sentence-transformers/all-MiniLM-L6-v2"
-api_key = st.secrets["huggingface"]["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"]
+api_key = st.secrets["huggingface"]["api_key"]
 def extract_text_from_pdfs(pdf_folder):
     text = ""
     for file_name in os.listdir(pdf_folder):
