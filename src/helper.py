@@ -14,7 +14,7 @@ import streamlit as st
 PROMPT = PromptTemplate(template=prompt_template, input_veriables=['context','question'])
 chain_type_kwargs={"prompt":PROMPT}
 embeddings_model = "sentence-transformers/all-MiniLM-L6-v2"
-api_key = st.secrets["huggingface"]["api_key"]
+api_key = st.secrets["default"]["api_key"]
 def extract_text_from_pdfs(pdf_folder):
     text = ""
     for file_name in os.listdir(pdf_folder):
