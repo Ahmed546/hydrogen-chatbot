@@ -1,0 +1,14 @@
+PyPDF2
+langchain
+sentence-transformers
+transformers
+torch
+faiss-cpu
+pycryptodome
+transformers[torch]
+langchain-huggingface
+streamlit
+python-dotenv
+#llama-cpp-python
+
+-e .
