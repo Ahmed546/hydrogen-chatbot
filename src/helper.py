@@ -66,11 +66,10 @@ def load_pretrained_model():
      "max_length": 128
     }
 
-    # Initialize the model with the updated parameters
     llm = HuggingFaceEndpoint(
     repo_id=repo_id,
     token="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",
-    temperature=0.7,  # Pass temperature explicitly
+    temperature=0.7, 
     model_kwargs=model_kwargs)
     return llm 
 
