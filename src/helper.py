@@ -33,7 +33,7 @@ def split_text_into_chunks(text, chunk_size=500, chunk_overlap=50):
     return text_splitter.split_text(text)
 
 def create_vector_database(chunks, embeddings_model):
-    save_path = r"D:/AI-Projects/hydrogen-chatbot/vectore_db/vector_db.faiss"
+    save_path = r"vectore_db\vector_db.faiss"
     
     if os.path.exists(save_path):
         print(f"Loading existing vector database from {save_path}...")
@@ -50,7 +50,7 @@ def create_vector_database(chunks, embeddings_model):
     return vector_db
 
 def load_db():
-    save_path = r"D:/AI-Projects/hydrogen-chatbot/vectore_db/vector_db.faiss"
+    save_path = r"vectore_db\vector_db.faiss"
     vector_db = FAISS.load_local(save_path, HuggingFaceEmbeddings(model_name=embeddings_model),allow_dangerous_deserialization=True)
     return vector_db
 
