@@ -1,12 +1,3 @@
-import PyPDF2
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.chains import RetrievalQA
-import os
-from langchain.prompts import PromptTemplate
-from langchain_huggingface import HuggingFaceEndpoint
-from transformers import pipeline
 from src.helper import load_db, load_pretrained_model, chat_bot, chain_type_kwargs
 import streamlit as st
 
