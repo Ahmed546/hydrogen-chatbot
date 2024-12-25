@@ -39,7 +39,7 @@ def create_vector_database(chunks, embeddings_model):
 # Construct the path to index.faiss relative to helper.py
     # index_path = os.path.join("D:\\AI-Projects\\hydrogen-chatbot", "vector_db", "vector_db.faiss")
     # save_path = os.path.abspath(index_path)
-    index_path = r"vectore_db\vector_db.faiss"
+    index_path = "vectore_db/vector_db.faiss"
     save_path = os.path.abspath(index_path)
     
     if os.path.exists(save_path):
@@ -58,7 +58,7 @@ def create_vector_database(chunks, embeddings_model):
 
 def load_db():
     
-    index_path = r"vectore_db\vector_db.faiss"
+    index_path = "vectore_db/vector_db.faiss"
     save_path = os.path.abspath(index_path)
 # Construct the path to index.faiss relative to helper.py
    # D:\AI-Projects\hydrogen-chatbot\vectore_db\vector_db.faiss\index.faiss
