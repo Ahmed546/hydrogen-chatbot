@@ -34,7 +34,13 @@ def split_text_into_chunks(text, chunk_size=500, chunk_overlap=50):
     return text_splitter.split_text(text)
 
 def create_vector_database(chunks, embeddings_model):
-    save_path = r"vectore_db\vector_db.faiss"
+    script_dir = os.path.dirname(__file__)
+
+# Construct the path to index.faiss relative to helper.py
+    # index_path = os.path.join("D:\\AI-Projects\\hydrogen-chatbot", "vector_db", "vector_db.faiss")
+    # save_path = os.path.abspath(index_path)
+    index_path = r"vectore_db\vector_db.faiss"
+    save_path = os.path.abspath(index_path)
     
     if os.path.exists(save_path):
         print(f"Loading existing vector database from {save_path}...")
@@ -51,7 +57,15 @@ def create_vector_database(chunks, embeddings_model):
     return vector_db
 
 def load_db():
-    save_path = r"vectore_db\vector_db.faiss"
+    
+    index_path = r"vectore_db\vector_db.faiss"
+    save_path = os.path.abspath(index_path)
+# Construct the path to index.faiss relative to helper.py
+   # D:\AI-Projects\hydrogen-chatbot\vectore_db\vector_db.faiss\index.faiss
+    # index_path = os.path.join("D:\\AI-Projects\\hydrogen-chatbot", "vector_db", "vector_db.faiss")
+    # save_path = os.path.abspath(index_path)
+
+   # save_path = os.path.join(os.path.dirname(root_dir), "vector_db", "vec_db.faiss", "index.faiss")
     vector_db = FAISS.load_local(save_path, HuggingFaceEmbeddings(model_name=embeddings_model),allow_dangerous_deserialization=True)
     return vector_db
 
